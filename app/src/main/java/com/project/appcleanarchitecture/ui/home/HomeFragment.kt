@@ -56,9 +56,9 @@ class HomeFragment : Fragment() {
 
     private fun initView()
     {
-                val textView: TextView = binding.textHome
+//                val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+//            textView.text = it
         })
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         //val mapFragment = childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
