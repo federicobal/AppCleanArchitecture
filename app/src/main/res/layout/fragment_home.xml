@@ -5,55 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    Percentage Width/Height using Constraint Layout-->
-<!--    <fragment-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_constraintWidth_percent="0.7" />-->
-<!--    <fragment-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_constraintWidth_percent="0.3" />-->
-
     <fragment
         android:id="@+id/map"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent=".80"
+        app:layout_constraintHeight_percent=".70"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/tZoneName"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:lineSpacingExtra="14sp"
+        android:text="Zone Name"
+        android:textSize="18sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/etZoneName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etZoneName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/tDistance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.55">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/tDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:lineSpacingExtra="14sp"
+        android:text="Distance"
+        android:textSize="18sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/etDistance"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etDistance"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginBottom="48dp"
-        android:lineSpacingExtra="14sp"
-        android:text="TextView Text Here"
-        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.55">
+    </EditText>
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
-        app:layout_constraintBottom_toTopOf="@+id/btnEliminar"
-        app:layout_constraintStart_toStartOf="@+id/btnEliminar" />
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etZoneName" />
 
     <Button
         android:id="@+id/btnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
         android:text="Eliminar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGuardar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
