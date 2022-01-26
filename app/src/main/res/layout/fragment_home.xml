@@ -1,7 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,7 +10,9 @@
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent=".70"
+
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tZoneName"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -32,10 +34,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginEnd="10dp"
         android:inputType="text"
+        android:text="New gps zone alarm"
         app:layout_constraintBottom_toTopOf="@+id/tDistance"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.55">
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="parent">
 
     </EditText>
 
@@ -45,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:lineSpacingExtra="14sp"
-        android:text="Distance"
+        android:text="Distance in Miles (Max 10 mi)"
         android:textSize="18sp"
 
         app:layout_constraintBottom_toTopOf="@+id/etDistance"
@@ -59,29 +63,45 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="30dp"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.55">
+        app:layout_constraintWidth_percent="0.15"
+        android:text="5"
+        >
     </EditText>
 
+    <SeekBar
+        android:id="@+id/sbDistance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+        app:layout_constraintStart_toEndOf="@+id/etDistance"
+        android:max="10"
+        android:progress="5"
+
+        >
+    </SeekBar>
+
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
+        android:text="Save"
         android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etZoneName" />
 
     <Button
-        android:id="@+id/btnEliminar"
+        android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
+        android:text="Delete"
         android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGuardar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

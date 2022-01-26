@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -25,7 +28,7 @@ import com.project.appcleanarchitecture.ui.home.place.PlacesReader
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+        private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -56,6 +59,15 @@ class HomeFragment : Fragment() {
 
     private fun initView()
     {
+
+        var tZoneName:TextView= binding.tZoneName
+        var etZoneName:EditText=binding.etZoneName
+        var tDistance:TextView=binding.tDistance
+        var etDistance:EditText=binding.etDistance
+        var sbDistance:SeekBar=binding.sbDistance
+        var btnSave:Button=binding.btnSave
+        var btnDelete:Button=binding.btnDelete
+
 //                val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
 //            textView.text = it
