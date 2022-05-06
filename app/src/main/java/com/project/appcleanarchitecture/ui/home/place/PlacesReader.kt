@@ -9,6 +9,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 /**
+ * Created by fbal on 19/4/2022.
  * Reads a list of place JSON objects from the file places.json.
  */
 class PlacesReader(private val context: Context) {

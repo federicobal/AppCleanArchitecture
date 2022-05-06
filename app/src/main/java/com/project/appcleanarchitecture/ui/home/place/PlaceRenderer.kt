@@ -12,8 +12,10 @@ import com.project.appcleanarchitecture.R
 import com.project.appcleanarchitecture.ui.home.BitmapHelper
 
 /**
+ * Created by fbal on 19/4/2022.
  * A custom cluster renderer for Place objects.
  */
+
 class PlaceRenderer(
     private val context: Context,
     map: GoogleMap,
