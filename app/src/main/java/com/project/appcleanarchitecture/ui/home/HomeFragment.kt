@@ -29,10 +29,10 @@ import com.project.appcleanarchitecture.util.hide
 import com.project.appcleanarchitecture.util.show
 import com.google.android.gms.maps.model.Marker
 import com.project.appcleanarchitecture.util.LoadingEnum
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -51,23 +51,20 @@ class HomeFragment : Fragment() {
     ): View? {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 //        binding.fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
 //        }
         val root: View = binding.root
-
         initView()
         Load()
         return root
     }
-
     private fun initView()
     {
         var tZoneName:TextView= binding.tZoneName
-        var etZoneName:EditText=binding.etZoneName
+        var etZoneName:EditText =binding.etZoneName
         var tDistance:TextView=binding.tDistance
         var etDistance:EditText=binding.etDistance
         var sbDistance:SeekBar=binding.sbDistance
@@ -117,10 +114,10 @@ class HomeFragment : Fragment() {
         })
         homeViewModel.listAddressPosition.observe(viewLifecycleOwner, Observer{
 
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        //val mapFragment = childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
-        mapFragment.getMapAsync { googleMap ->
-            // Ensure all places are visible in the map
+            val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+            //val mapFragment = childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
+            mapFragment.getMapAsync { googleMap ->
+                // Ensure all places are visible in the map
 //                googleMap.setOnMapLoadedCallback {
 //                    val bounds = LatLngBounds.builder()
 //                    it.forEach { bounds.include(it.latLng) }
@@ -130,9 +127,9 @@ class HomeFragment : Fragment() {
                 addMarkers(googleMap,it)
 //                addClusteredMarkers(googleMap,it)
 
-            // Set custom info window adapter
-            // googleMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
-        }
+                // Set custom info window adapter
+                // googleMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
+            }
         })
         btnSave.setOnClickListener {
             //etZoneName.text
@@ -171,7 +168,7 @@ class HomeFragment : Fragment() {
                     " id:"+marker.id+" More:" + marker.tag.toString())
             homeViewModel.getPoint((marker.tag as Place).id)
             false
-    }
+        }
     }
 
     /**
