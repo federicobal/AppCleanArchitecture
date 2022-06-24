@@ -19,9 +19,8 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val getAllPointsUseCase: GetAllPointsUseCase
-) : ViewModel() {
+class HomeViewModel @Inject constructor(private val getAllPointsUseCase: GetAllPointsUseCase) :
+    ViewModel() {
 
     private val maxDistance = 10
 
@@ -59,9 +58,9 @@ class HomeViewModel @Inject constructor(
         _loading.value = LoadingEnum.LOADING
         viewModelScope.launch {
             try {
-//                delay(10L * 1000L)
-//                var list: MutableList<Place> = mutableListOf()
-//                list.add(Place(list.count().toString(),"101-00001 - GÜEMES", LatLng(-34.491124,-58.845394),"ALBERDI 413",1.0F,0.0F))
+                delay(10L * 1000L)
+                var list: MutableList<Place> = mutableListOf()
+                list.add(Place(list.count().toString(),"101-00001 - GÜEMES", LatLng(-34.491124,-58.845394),"ALBERDI 413",1.0F,0.0F))
 //                list.add(Place(list.count().toString(),"AROCENA, MIRIAM RAQ", LatLng(-34.558332,-58.450981),"VIRREY ARREDONDO 03448 07B",2.0F,0.0F))
 //                list.add(Place(list.count().toString(),"CRUZ MASCHIO PEDRO A", LatLng(-34.491228,-58.845317),"ARREDONDO 2553 G 15",3.0F,0.0F))
 //                list.add(Place(list.count().toString(),"D.G.R. - DELEGACIÓN GENERAL GÜ", LatLng(-34.491131,-58.845374),"RIVADAVIA Y SAN MARTIN",4.0F,0.0F))
@@ -75,7 +74,8 @@ class HomeViewModel @Inject constructor(
 //                list.add(Place(list.count().toString(),"PENA ANDREA CELESTE", LatLng(-34.558337,-58.450985),"ZAPIOLA 1759 4 C",11.0F,0.0F))
 //                list.add(Place(list.count().toString(),"PUMA", LatLng(-34.854722,-58.390436),"25 DE MAYO 259",12.0F,0.0F))
 //                list.add(Place(list.count().toString(),"VALERIA DEL CARMEN CARI", LatLng(-34.491228,-58.845317),"SAN LORENZO  551",13.0F,0.0F))
-              // _listAddressPosition.value=getAllPointsUseCase()
+
+                _listAddressPosition.value=getAllPointsUseCase()!!
                 _loading.value = LoadingEnum.DONE
             }catch (ex:Exception)
             {

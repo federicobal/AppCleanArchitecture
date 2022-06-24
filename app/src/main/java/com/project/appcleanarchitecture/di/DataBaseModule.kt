@@ -1,7 +1,6 @@
 package com.project.appcleanarchitecture.di
 
 import android.content.Context
-import com.project.appcleanarchitecture.data.PointRepository
 import com.project.appcleanarchitecture.data.local.DatabaseDAO
 import com.project.appcleanarchitecture.data.local.DatabaseLocal
 import dagger.Module
@@ -18,20 +17,19 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DataBaseModule {
-
-    @Singleton
-    @Provides
     /**
      * De esta manera comparte la base de datos a tod.o el proyecto
      */
-    fun provideAppDatabase(@ApplicationContext context: Context): DatabaseLocal {
-        return DatabaseLocal.getDatabase(context)
+    @Singleton
+    @Provides
+    fun provideDatabaseLocal(@ApplicationContext context: Context): DatabaseLocal {
+        return DatabaseLocal.getInstance(context)
     }
 
     @Provides
-    @Singleton
-    fun provideBaseLocal(databaseDatabaseLocal: DatabaseLocal): DatabaseDAO {
-        return databaseDatabaseLocal.databaseDAO()
+    fun provideBasebaseDAO(databaseLocal: DatabaseLocal): DatabaseDAO {
+        return databaseLocal.databaseDAO()
     }
+
 
 }
